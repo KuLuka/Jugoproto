@@ -1,0 +1,64 @@
+$red:#EA1C24;
+$black:#282828;
+$gray:#4C4C4C;
+$font:#737373;
+$cat-color:#f0f0f0;
+
+
+
+@mixin miniTablet-Logo {
+    @media(min-width:600px) and (max-width:700px) {@content;}
+}
+
+@mixin Tablet-Logo {
+    @media(min-width:700px) and (max-width:899px) {@content;}
+}
+
+@mixin Tablet  {
+    @media(min-width:600px)and (max-width:899px) {@content;}
+}
+
+@mixin Desktop1 {
+    @media(min-width:900px) and (max-width:1290px) {@content};
+}
+
+@mixin Desktop2 {
+    @media(min-width:1291px) {@content}
+}
+
+
+.luka-radoja {
+    background-color: #ECF2F8;
+    margin-top:5rem;
+    text-align:center;
+    padding:3rem;
+   
+  
+
+    .quote {
+        font-weight:bold;
+        font-size:2rem;
+    }
+
+    p {
+        color:$font;
+        line-height:27px;
+
+        @include Desktop1() {
+            width:70%;
+            margin: 0 auto;
+        }
+
+        @include Desktop2() {
+            width:700px;
+            margin: 0 auto;
+        }
+    }
+
+    h5 {
+        color:$black;
+        font-size:1.2rem;
+        margin-top:2rem;   
+        font-weight:500;
+    }
+}

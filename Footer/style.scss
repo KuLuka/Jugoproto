@@ -1,0 +1,209 @@
+@mixin miniTablet-Logo {
+    @media(min-width:600px) and (max-width:700px) {@content;}
+}
+
+@mixin Tablet-Logo {
+    @media(min-width:700px) and (max-width:899px) {@content;}
+}
+
+@mixin Tablet  {
+    @media(min-width:600px)and (max-width:899px) {@content;}
+}
+
+@mixin Desktop1 {
+    @media(min-width:900px) and (max-width:1290px) {@content};
+}
+
+@mixin Desktop2 {
+    @media(min-width:1291px) {@content}
+}
+
+$red:#EA1C24;
+$black:#282828;
+$gray:#4C4C4C;
+$font:#737373;
+$cat-color:#f0f0f0;
+
+
+footer {
+    background:$black;
+    padding:1rem;
+
+    @include Tablet() {
+        display:grid;
+        grid-template-columns: repeat(2, 50%);
+    }
+
+    @include Desktop1() {
+        display:grid;
+        grid-template-columns:repeat(2,50%);
+        padding:1rem 2rem;
+    }
+
+    @include Desktop2() {
+        display:grid;
+        grid-template-columns:repeat(2,50%);
+        padding:1rem 2rem;
+    }
+    
+    h4 {
+        color:$cat-color;
+        font-size:1rem;
+        font-weight:500;
+        
+    }
+
+    p {
+        color:$font;
+        color:#a3a3a3;
+        line-height:27px;
+        font-size:.8rem;
+        
+    }
+
+    a {
+        color:$font;
+        color:#a3a3a3;
+        line-height:27px;
+        font-size:.8rem;
+        transition:color .4s linear;
+    }
+
+    a:hover {
+        color:$red;
+    }
+
+
+
+    .jugo-adresa,.jugo-mail,.jugo-phone,.jugo-face {
+        padding:1rem 0;
+    }
+
+    .jugo-pages {
+
+        @include Desktop1() {
+            display:grid;
+            grid-template-columns: repeat(2,auto);
+            grid-gap:1rem;
+        }
+
+        @include Desktop2() {
+            display:grid;
+            grid-template-columns: repeat(2,auto);
+            grid-gap:1rem;
+        }
+
+        .page-servis,.page-akcija,.page-about,.page-finansiranje,.page-kontakt,.page-prodavnica {
+            padding:1rem 0;
+
+            @include Desktop1() {
+                height:100px;
+            }
+
+            @include Desktop2() {
+                height:100px;
+            }
+        }
+
+        .page-kontakt {
+            @include Desktop1() {
+                margin-top:-1rem;
+            }
+
+            @include Desktop2() {
+                margin-top:-1rem;
+            }
+        }
+
+    }
+}
+
+.credits {
+    border-top:1px solid $font;
+    background:$black;
+    padding:1rem;
+    color:$cat-color;
+
+    @include Tablet() {
+        display:flex;
+        justify-content: space-between;
+    }
+
+    @include Desktop1() {
+        display:flex;
+        justify-content: space-between;
+    }
+
+    @include Desktop2() {
+        display:flex;
+        justify-content: space-between;
+    }
+
+    p {
+        font-weight:300;
+        font-size:.8rem;
+
+        @include Desktop2() {
+            font-size:1rem;
+            margin-left:1rem;
+        }
+    }
+
+    .credit-cards {
+        display:flex;
+
+        @include Tablet() {
+            margin-top:-1rem;
+        }
+
+        @include Desktop1() {
+            margin-top:-1rem;
+        }
+
+        @include Desktop2() {
+            margin-top:-1rem;
+        }
+        
+        
+    
+        .visa {
+            background: url('./../../JM/Kartice/visa1.png');
+            width:50px;
+            height:30px;
+            background-position: center;
+            background-size:cover;
+            
+            margin-top:.6rem;
+        }
+
+        .master {
+            background: url('./../../JM/Kartice/Master_Card.png');
+            width:50px;
+            height:50px;
+            background-position: center;
+            background-size:cover;
+            
+        }
+
+        .express {
+            background: url('./../../JM/Kartice/a-e.png');
+            width:50px;
+            height:50px;
+            background-position: center;
+            background-size:cover;
+            
+        }
+
+        .dina {
+            background: url('./../../JM/Kartice/dina-card.png');
+            width:50px;
+            height:50px;
+            background-position: center;
+            background-size:cover;
+            
+        }
+    }
+    
+}
+
+

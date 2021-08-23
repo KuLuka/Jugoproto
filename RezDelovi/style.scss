@@ -1,0 +1,192 @@
+
+$red:#EA1C24;
+$black:#282828;
+$gray:#4C4C4C;
+$font:#737373;
+$cat-color:#f0f0f0;
+
+
+
+@mixin miniTablet-Logo {
+    @media(min-width:600px) and (max-width:700px) {@content;}
+}
+
+@mixin Tablet-Logo {
+    @media(min-width:700px) and (max-width:899px) {@content;}
+}
+
+@mixin Tablet  {
+    @media(min-width:600px)and (max-width:899px) {@content;}
+}
+
+@mixin Desktop1 {
+    @media(min-width:900px) and (max-width:1290px) {@content};
+}
+
+@mixin Desktop2 {
+    @media(min-width:1291px) {@content}
+}
+
+
+.six-grid-system {
+    padding:1rem;
+    display:grid;
+    place-content:center;
+    text-align:center;
+
+    @include Tablet {
+        margin:0 auto;
+        width:90%;
+        grid-template-columns:repeat(2,50%);
+    }
+
+    @include Desktop1() {
+        margin:0 auto;
+        width:90%;
+        grid-template-columns: repeat(3, 33.3%);
+    }
+
+    @include Desktop2() {
+        margin:0 auto;
+        width:80%;
+        grid-template-columns: repeat(3, 33.3%);
+    }
+    
+
+    .box {
+        border-top:1px solid $cat-color;
+        padding:3rem 0;
+
+        @include Tablet() {
+            border-right:1px solid $cat-color;
+        }
+
+
+        @include Desktop1() {
+            border-right:1px solid $cat-color;
+            
+        }
+
+        @include Desktop2() {
+            border-right:1px solid $cat-color;
+            
+        }
+
+
+
+        h2 {
+            font-size:2rem;
+            font-weight:500;
+            color:$black
+        }
+
+        .box-brands {
+            display:flex;
+            margin:1rem auto; 
+            justify-content: center;
+
+
+            p {
+                font-size:1rem;
+                font-weight:300;
+                color:$font;
+                border-right:1px solid $cat-color;
+                width:fit-content;
+                padding:.1rem .5rem;
+                margin:.5rem 0;
+                transition:all .2s linear;
+
+                &:last-child {
+                    border-right:none;
+                }
+            }    
+            
+            p:hover {
+                color:$red;
+                cursor:default;
+            }
+        }
+
+        a {
+            color:$red;
+            border:.5px solid $red;
+            padding:.7rem 2rem;
+            margin-top:1rem;
+            display:inline-block;
+            font-size:.9rem;
+            transition:all linear .4s;
+        }
+
+        a:hover {
+            color:#fff;
+            background:$red;
+        }
+
+
+       
+    }
+
+    .box:first-child {
+        border-top:none;
+    }
+
+
+    .box:nth-child(2) {
+        @include Tablet() {
+            border-top:none;
+        }
+
+        @include Desktop1() {
+            border-top:none;
+        }
+
+
+        @include Desktop2() {
+            border-top:none;
+        }
+    }
+
+    .box:nth-child(3) {
+        @include Desktop1() {
+            border-top:none;
+        }
+
+        @include Desktop2() {
+            border-top:none;
+        }
+    }
+
+    
+
+    .box:nth-child(3n) {
+        @include Desktop1() {
+            border-right:none;
+        }
+
+        @include Desktop2() {
+            border-right:none;
+        }
+    }
+    
+    .box:nth-child(even) {
+        @include Tablet() {
+            border-right:none;
+        }
+    }
+}
+
+.box-hide {
+    opacity:0;
+}
+
+.desktop-none {
+    display:none;
+
+    @include Desktop1() {
+        display:block;
+    }
+
+    @include Desktop2() {
+        display:block;
+    }
+}
